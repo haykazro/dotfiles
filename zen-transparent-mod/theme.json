@@ -1,0 +1,15 @@
+{
+  "id": "custom-zen-transparent-theme-2026",
+  "name": "Zen Transparent Glass",
+  "description": "A beautiful transparent glass theme for Zen Browser with Linux support. Features customizable transparency, blur effects, and accent colors.",
+  "homepage": "https://github.com/yourusername/zen-transparent-glass",
+  "style": "https://raw.githubusercontent.com/yourusername/zen-transparent-glass/main/chrome.css",
+  "readme": "https://raw.githubusercontent.com/yourusername/zen-transparent-glass/main/README.md",
+  "image": "https://raw.githubusercontent.com/yourusername/zen-transparent-glass/main/preview.png",
+  "author": "yourusername",
+  "version": "1.0.0",
+  "tags": ["transparent", "glass", "linux", "blur", "minimal"],
+  "createdAt": "2026-02-24",
+  "updatedAt": "2026-02-24",
+  "preferences": "https://raw.githubusercontent.com/yourusername/zen-transparent-glass/main/preferences.json"
+}

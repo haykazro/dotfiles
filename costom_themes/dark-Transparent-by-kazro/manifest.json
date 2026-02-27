@@ -1,0 +1,10 @@
+// obsidion theme
+{
+  "name": "dark-Transparent-by-kazro",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "author": "kazro",
+  "authorUrl": "",
+  "description": "A dark, transparent theme by kazro. Features modern CSS variables, subtle transparency effects, and a carefully curated color palette.",
+  "isDesktopOnly": false,
+}

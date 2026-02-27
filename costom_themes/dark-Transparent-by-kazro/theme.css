@@ -1,0 +1,731 @@
+/*
+  Obsidian Theme: Kazro Dark Transparent (Modern)
+  Based on Zed Theme by Kazro
+  A dark, transparent-inspired theme with modern aesthetics
+
+  Uses modern Obsidian CSS variables (2024-2025)
+*/
+
+/* ==================== BASE COLOR PALETTE ==================== */
+/*
+  Zed theme color mapping:
+  - Background: #000000 with transparency (D6 = ~84% opacity)
+  - Text: #dce0e5 (primary), #a9afbc (muted), #878a98 (faint)
+  - Accent: #74ade8 (blue)
+  - Keywords: #b477cf (purple)
+  - Functions: #73ade9 (light blue)
+  - Strings: #a1c181 (green)
+  - Numbers: #bf956a (orange/amber)
+  - Types: #6eb4bf (cyan)
+  - Properties: #d07277 (red/pink)
+  - Warnings: #dec184 (yellow/gold)
+  - Errors: #d07277 (red)
+  - Borders: #464b57, #363c46
+*/
+
+.theme-dark {
+    /* ========== BASE COLORS (Modern Obsidian Variables) ========== */
+    /* Using rgba for transparency - black base with varying opacity */
+    --color-base-00: rgba(0, 0, 0, 0.7); /* Main transparent background */
+    --color-base-05: rgba(13, 13, 13, 0.9);
+    --color-base-10: rgba(26, 26, 26, 0.92);
+    --color-base-20: rgba(18, 18, 18, 0.88);
+    --color-base-25: rgba(30, 30, 30, 0.9);
+    --color-base-30: rgba(46, 52, 62, 0.95); /* Element background */
+    --color-base-35: rgba(54, 60, 70, 0.95); /* Hover state */
+    --color-base-40: rgba(70, 75, 87, 0.9); /* Borders */
+    --color-base-50: rgba(135, 138, 152, 0.9); /* Disabled/placeholder */
+    --color-base-60: rgba(169, 175, 188, 0.9); /* Muted text */
+    --color-base-70: rgba(172, 178, 190, 0.9); /* Editor text */
+    --color-base-100: rgba(220, 224, 229, 0.95); /* Primary text */
+
+    /* ========== EXTENDED COLORS ========== */
+    --color-red: #d07277;
+    --color-red-rgb: 208, 114, 119;
+    --color-orange: #bf956a;
+    --color-orange-rgb: 191, 149, 106;
+    --color-yellow: #dec184;
+    --color-yellow-rgb: 222, 193, 132;
+    --color-green: #a1c181;
+    --color-green-rgb: 161, 193, 129;
+    --color-cyan: #6eb4bf;
+    --color-cyan-rgb: 110, 180, 191;
+    --color-blue: #74ade8;
+    --color-blue-rgb: 116, 173, 232;
+    --color-purple: #b477cf;
+    --color-purple-rgb: 180, 119, 207;
+    --color-pink: #d07277;
+    --color-pink-rgb: 208, 114, 119;
+
+    /* ========== ACCENT COLOR (HSL format for calculations) ========== */
+    --accent-h: 207;
+    --accent-s: 72%;
+    --accent-l: 67%;
+
+    /* ========== SEMANTIC COLORS - SURFACE ========== */
+    --background-primary: rgba(0, 0, 0, 0.4);
+    --background-primary-alt: rgba(10, 10, 10, 0.88);
+    --background-secondary: rgba(5, 5, 5, 0.86);
+    --background-secondary-alt: rgba(15, 15, 15, 0.9);
+
+    --background-modifier-hover: rgba(54, 60, 70, 0.6);
+    --background-modifier-active-hover: rgba(69, 74, 86, 0.7);
+    --background-modifier-border: #464b57;
+    --background-modifier-border-hover: #5a6070;
+    --background-modifier-border-focus: #47679e;
+    --background-modifier-form-field: rgba(46, 52, 62, 0.8);
+    --background-modifier-form-field-highlighted: rgba(54, 60, 70, 0.9);
+
+    --background-modifier-success: rgba(161, 193, 129, 0.2);
+    --background-modifier-error: rgba(208, 114, 119, 0.2);
+    --background-modifier-error-hover: rgba(224, 108, 117, 0.3);
+    --background-modifier-cover: rgba(0, 0, 0, 0.7);
+
+    /* ========== SEMANTIC COLORS - TEXT ========== */
+    --text-normal: #dce0e5;
+    --text-muted: #a9afbc;
+    --text-faint: #878a98;
+    --text-on-accent: #000000;
+    --text-error: #d07277;
+    --text-success: #a1c181;
+    --text-warning: #dec184;
+    --text-accent: #74ade8;
+    --text-accent-hover: #85c1ff;
+    --text-selection: rgba(116, 173, 232, 0.35);
+    --text-highlight-bg: rgba(116, 173, 232, 0.25);
+
+    /* ========== SEMANTIC COLORS - INTERACTIVE ========== */
+    --interactive-normal: rgba(46, 52, 62, 0.8);
+    --interactive-hover: rgba(54, 60, 70, 0.9);
+    --interactive-accent: #74ade8;
+    --interactive-accent-hover: #85c1ff;
+    --interactive-accent-hsl: 207, 72%, 67%;
+    --interactive-success: #a1c181;
+
+    /* ========== SEMANTIC COLORS - SCROLLBAR ========== */
+    --scrollbar-bg: transparent;
+    --scrollbar-thumb-bg: rgba(200, 204, 212, 0.25);
+    --scrollbar-active-thumb-bg: rgba(54, 60, 70, 0.8);
+
+    /* ========== SEMANTIC COLORS - CARET ========== */
+    --caret-color: #74ade8;
+}
+
+/* ==================== HEADINGS (No Red) ==================== */
+/* Using a cool gradient: blue -> cyan -> green -> purple -> amber */
+.theme-dark {
+    --h1-color: #74ade8; /* Blue */
+    --h2-color: #6eb4bf; /* Cyan */
+    --h3-color: #a1c181; /* Green */
+    --h4-color: #dec184; /* Amber/Gold */
+    --h5-color: #b477cf; /* Purple */
+    --h6-color: #bf956a; /* Orange */
+
+    --h1-size: 2em;
+    --h2-size: 1.75em;
+    --h3-size: 1.5em;
+    --h4-size: 1.25em;
+    --h5-size: 1.125em;
+    --h6-size: 1em;
+
+    --h1-line-height: 1.3;
+    --h2-line-height: 1.35;
+    --h3-line-height: 1.4;
+    --h4-line-height: 1.4;
+    --h5-line-height: 1.45;
+    --h6-line-height: 1.45;
+
+    --h1-weight: 600;
+    --h2-weight: 600;
+    --h3-weight: 600;
+    --h4-weight: 600;
+    --h5-weight: 600;
+    --h6-weight: 600;
+
+    --heading-spacing: 1.5em;
+    --p-spacing: 1em;
+}
+
+/* ==================== LINKS ==================== */
+.theme-dark {
+    --link-color: #73ade9;
+    --link-color-hover: #85c1ff;
+    --link-decoration: none;
+    --link-decoration-hover: underline;
+    --link-unresolved-color: #878a98;
+    --link-unresolved-opacity: 0.7;
+    --link-unresolved-decoration-style: dashed;
+    --link-external-color: #6eb4bf;
+    --link-external-color-hover: #6ed5de;
+    --link-external-decoration: none;
+    --link-external-decoration-hover: underline;
+}
+
+/* ==================== TAGS ==================== */
+.theme-dark {
+    --tag-size: 0.85em;
+    --tag-color: #74ade8;
+    --tag-color-hover: #85c1ff;
+    --tag-background: rgba(116, 173, 232, 0.12);
+    --tag-background-hover: rgba(116, 173, 232, 0.22);
+    --tag-border: none;
+    --tag-border-hover: none;
+    --tag-radius: 4px;
+    --tag-padding-x: 8px;
+    --tag-padding-y: 2px;
+}
+
+/* ==================== CODE ==================== */
+.theme-dark {
+    --code-size: 0.9em;
+    --code-background: rgba(26, 26, 26, 0.9);
+    --code-normal: #acb2be;
+
+    --code-comment: #5d636f;
+    --code-function: #73ade9;
+    --code-important: #b477cf;
+    --code-keyword: #b477cf;
+    --code-operator: #6eb4bf;
+    --code-property: #d07277;
+    --code-punctuation: #acb2be;
+    --code-string: #a1c181;
+    --code-tag: #74ade8;
+    --code-value: #bf956a;
+
+    --inline-code-color: #bf956a;
+    --inline-code-background: rgba(191, 149, 106, 0.12);
+
+    --pre-code-background: rgba(26, 26, 26, 0.9);
+    --code-block-background: rgba(26, 26, 26, 0.9);
+
+    --code-radius: 6px;
+    --code-padding: 0.15em 0.4em;
+}
+
+/* ==================== BLOCKQUOTES ==================== */
+.theme-dark {
+    --blockquote-background-color: rgba(116, 173, 232, 0.06);
+    --blockquote-border-color: #74ade8;
+    --blockquote-border-thickness: 3px;
+    --blockquote-border-radius: 0 6px 6px 0;
+    --blockquote-padding: 10px 20px;
+    --blockquote-font-style: normal;
+    --blockquote-color: inherit;
+}
+
+/* ==================== TABLES ==================== */
+.theme-dark {
+    --table-background: transparent;
+    --table-border-width: 1px;
+    --table-border-color: #464b57;
+    --table-header-background: rgba(46, 52, 62, 0.8);
+    --table-header-background-hover: rgba(54, 60, 70, 0.9);
+    --table-header-font: inherit;
+    --table-header-size: inherit;
+    --table-header-weight: 600;
+    --table-header-color: #dce0e5;
+    --table-row-background-hover: rgba(54, 60, 70, 0.4);
+    --table-row-alt-background: rgba(46, 52, 62, 0.2);
+    --table-row-background: transparent;
+    --table-cell-padding-x: 14px;
+    --table-cell-padding-y: 10px;
+}
+
+/* ==================== CHECKBOXES / TASKS ==================== */
+.theme-dark {
+    --checkbox-radius: 3px;
+    --checkbox-size: 16px;
+    --checkbox-marker-color: #000000;
+    --checkbox-color: #a1c181;
+    --checkbox-color-hover: #aad581;
+    --checkbox-border-color: #464b57;
+    --checkbox-border-color-hover: #a1c181;
+    --checkbox-border-width: 1px;
+    --checklist-done-color: #878a98;
+    --checklist-done-decoration: line-through;
+    --checklist-done-weight: inherit;
+}
+
+/* ==================== CALLOUTS ==================== */
+.theme-dark {
+    --callout-border-width: 0 0 0 4px;
+    --callout-border-opacity: 1;
+    --callout-padding: 12px 16px;
+    --callout-radius: 6px;
+    --callout-blend-mode: normal;
+    --callout-title-color: inherit;
+    --callout-title-padding: 0;
+    --callout-title-size: inherit;
+    --callout-title-weight: 600;
+    --callout-content-padding: 0;
+    --callout-content-background: transparent;
+    --callout-bug: #e06c75;
+    --callout-default: #74ade8;
+    --callout-error: #d07277;
+    --callout-example: #b477cf;
+    --callout-fail: #d07277;
+    --callout-important: #b477cf;
+    --callout-info: #74ade8;
+    --callout-question: #dec184;
+    --callout-quote: #878a98;
+    --callout-success: #27a657;
+    --callout-summary: #6eb4bf;
+    --callout-tip: #a1c181;
+    --callout-todo: #74ade8;
+    --callout-warning: #dec184;
+}
+
+/* ==================== GRAPH VIEW ==================== */
+.theme-dark {
+    --graph-node: #73ade9;
+    --graph-node-unresolved: #878a98;
+    --graph-node-tag: #b477cf;
+    --graph-node-attachment: #a1c181;
+    --graph-node-focused: #dec184;
+    --graph-node-highlight-fill: #dec184;
+    --graph-node-highlight-line: #74ade8;
+    --graph-line: #363c46;
+    --graph-line-highlight: #74ade8;
+    --graph-text: #a9afbc;
+}
+
+/* ==================== CANVAS ==================== */
+.theme-dark {
+    --canvas-background: rgba(0, 0, 0, 0.5);
+    --canvas-card-background: rgba(0, 0, 0, 0.84);
+    --canvas-card-border-color: #464b57;
+    --canvas-card-border-width: 1px;
+    --canvas-card-border-radius: 8px;
+}
+
+/* ==================== UI COMPONENTS ==================== */
+.theme-dark {
+    /* Buttons */
+    --button-radius: 6px;
+    --button-padding: 6px 14px;
+    --button-padding-icon: 4px 8px;
+    --button-background: rgba(46, 52, 62, 0.8);
+    --button-background-hover: rgba(54, 60, 70, 0.9);
+    --button-background-active: rgba(69, 74, 86, 0.9);
+
+    /* Inputs */
+    --input-height: 32px;
+    --input-radius: 6px;
+    --input-font-weight: inherit;
+    --input-border-width: 1px;
+    --input-border-style: solid;
+    --input-border-color: #464b57;
+    --input-border-color-hover: #5a6070;
+    --input-border-color-focus: #47679e;
+
+    /* Toggle */
+    --toggle-width: 40px;
+    --toggle-height: 22px;
+    --toggle-radius: 12px;
+    --toggle-thumb-radius: 10px;
+    --toggle-thumb-height: 18px;
+    --toggle-thumb-width: 18px;
+    --toggle-s-border-width: 2px;
+
+    /* Slider */
+    --slider-track-background: #363c46;
+    --slider-thumb-height: 16px;
+    --slider-thumb-width: 16px;
+    --slider-thumb-radius: 50%;
+    --slider-track-height: 4px;
+    --slider-track-radius: 2px;
+
+    /* Modal */
+    --modal-background: rgba(13, 13, 13, 0.98);
+    --modal-border-color: #464b57;
+    --modal-border-width: 1px;
+    --modal-radius: 10px;
+    --modal-width: 90vw;
+    --modal-height: 85vh;
+    --modal-max-width: 1100px;
+    --modal-max-height: 1000px;
+    --modal-max-width-narrow: 800px;
+    --modal-border-width: 1px;
+    --modal-community-sidebar-width: 280px;
+
+    /* Popover */
+    --popover-width: 450px;
+    --popover-height: 400px;
+    --popover-max-height: 70vh;
+    --popover-pdf-width: 600px;
+    --popover-pdf-height: 800px;
+    --popover-font-size: var(--font-ui-size);
+
+    /* Tooltip */
+    --tooltip-background: rgba(46, 52, 62, 0.95);
+    --tooltip-text-color: #dce0e5;
+    --tooltip-radius: 6px;
+
+    /* Menu */
+    --menu-background: rgba(13, 13, 13, 0.98);
+    --menu-border-color: #464b57;
+    --menu-border-width: 1px;
+    --menu-border-radius: 8px;
+
+    /* Notice */
+    --notice-background: rgba(46, 52, 62, 0.95);
+    --notice-text-color: #dce0e5;
+    --notice-radius: 6px;
+    --notice-border-color: #464b57;
+    --notice-border-width: 1px;
+}
+
+/* ==================== WINDOW / WORKSPACE ==================== */
+.theme-dark {
+    /* Ribbon */
+    --ribbon-background: rgba(0, 0, 0, 0.84);
+    --ribbon-background-collapsed: rgba(0, 0, 0, 0.84);
+    --ribbon-width: 44px;
+    --ribbon-padding: 8px;
+
+    /* Status Bar */
+    --status-bar-background: rgba(0, 0, 0, 0.84);
+    --status-bar-border-color: #464b57;
+    --status-bar-border-width: 1px 0 0 0;
+    --status-bar-text-color: #a9afbc;
+    --status-bar-font-size: var(--font-ui-smaller);
+    --status-bar-position: fixed;
+    --status-bar-radius: 0;
+
+    /* Title Bar */
+    --titlebar-background: rgba(0, 0, 0, 0.84);
+    --titlebar-background-focused: rgba(0, 0, 0, 0.84);
+    --titlebar-border-color: #464b57;
+    --titlebar-border-width: 0 0 1px 0;
+    --titlebar-text-color: #a9afbc;
+    --titlebar-text-color-focused: #dce0e5;
+
+    /* Divider */
+    --divider-color: #464b57;
+    --divider-color-hover: #74ade8;
+    --divider-width: 1px;
+    --divider-width-hover: 2px;
+    --divider-vertical-height: calc(100% - 20px);
+
+    /* Tabs */
+    --tab-background-active: rgba(0, 0, 0, 0.84);
+    --tab-text-color: #a9afbc;
+    --tab-text-color-active: #dce0e5;
+    --tab-text-color-focused: #dce0e5;
+    --tab-text-color-focused-active: #dce0e5;
+    --tab-text-color-focused-highlighted: #74ade8;
+    --tab-text-color-focused-active-current: #dce0e5;
+    --tab-font-size: var(--font-ui-small);
+    --tab-font-weight: inherit;
+    --tab-container-background: rgba(0, 0, 0, 0.45);
+    --tab-radius: 0;
+    --tab-radius-active: 0;
+    --tab-stacked-font-weight: inherit;
+    --tab-stacked-text-align: left;
+    --tab-stacked-text-transform: rotate(0deg);
+    --tab-stacked-text-writing-mode: horizontal-tb;
+    --tab-stacked-shadow: -2px 0 4px rgba(0, 0, 0, 0.3);
+
+    /* Workspace */
+    --workspace-background-translucent: rgba(0, 0, 0, 0.5);
+}
+
+/* ==================== NAVIGATION / FILE EXPLORER ==================== */
+.theme-dark {
+    --nav-item-color: #a9afbc;
+    --nav-item-color-hover: #dce0e5;
+    --nav-item-color-active: #dce0e5;
+    --nav-item-color-selected: #dce0e5;
+    --nav-item-color-highlighted: #74ade8;
+    --nav-item-background-hover: rgba(54, 60, 70, 0.6);
+    --nav-item-background-active: rgba(116, 173, 232, 0.15);
+    --nav-item-background-selected: rgba(116, 173, 232, 0.15);
+    --nav-item-padding: 4px 8px;
+    --nav-item-parent-padding: 4px 8px;
+    --nav-item-children-padding-left: 16px;
+    --nav-item-children-margin-left: 12px;
+    --nav-item-weight: inherit;
+    --nav-item-weight-hover: inherit;
+    --nav-item-weight-active: inherit;
+    --nav-item-white-space: pre;
+    --nav-indentation-guide-color: #363c46;
+    --nav-indentation-guide-width: 1px;
+    --nav-collapse-icon-color: #878a98;
+    --nav-collapse-icon-color-collapsed: #878a98;
+    --folder-icon-color: #dec184;
+    --file-icon-color: #a9afbc;
+    --icon-color: #dce0e5;
+    --icon-color-hover: #dce0e5;
+    --icon-color-active: #dce0e5;
+    --icon-color-focused: #74ade8;
+    --icon-opacity: 0.85;
+    --icon-opacity-hover: 1;
+    --icon-opacity-active: 1;
+}
+
+/* ==================== EDITOR ==================== */
+.theme-dark {
+    /* Font */
+    --font-text-theme:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial, sans-serif;
+    --font-monospace-theme:
+        "JetBrains Mono", "Fira Code", "SF Mono", "Cascadia Code", monospace;
+    --font-interface-theme:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial, sans-serif;
+
+    /* Font Sizes */
+    --font-ui-smaller: 11px;
+    --font-ui-small: 12px;
+    --font-ui-medium: 14px;
+    --font-ui-large: 16px;
+    --font-text-size: 16px;
+
+    /* Line Height */
+    --line-height-normal: 1.6;
+    --line-height-tight: 1.3;
+
+    /* Editor */
+    --editor-font-size: var(--font-text-size);
+    --editor-line-height: var(--line-height-normal);
+    --editor-font-weight: 400;
+
+    /* Active Line */
+    --line-highlight-background-color: rgba(43, 43, 43, 0.5);
+
+    /* Selection */
+    --selection-background-color: rgba(116, 173, 232, 0.35);
+
+    /* Indentation Guides */
+    --indentation-guide-color: rgba(54, 60, 70, 0.5);
+    --indentation-guide-color-active: rgba(116, 173, 232, 0.5);
+    --indentation-guide-width: 1px;
+
+    /* Lists */
+    --list-indent: 24px;
+    --list-spacing: 0.25em;
+    --list-marker-color: #d07277;
+    --list-marker-color-hover: #e06c75;
+    --list-marker-color-collapsed: #74ade8;
+    --list-bullet-radius: 50%;
+    --list-bullet-size: 6px;
+    --list-bullet-transform: none;
+
+    /* Horizontal Rule */
+    --hr-color: #464b57;
+    --hr-thickness: 1px;
+
+    /* Embeds */
+    --embed-background: transparent;
+    --embed-border-left: 2px solid #74ade8;
+    --embed-padding: 16px;
+    --embed-font-style: inherit;
+
+    /* Footnotes */
+    --footnote-size: 0.85em;
+    --footnote-color: #878a98;
+}
+
+/* ==================== SEARCH ==================== */
+.theme-dark {
+    --search-result-background: transparent;
+    --search-result-background-hover: rgba(54, 60, 70, 0.4);
+    --search-result-foreground: var(--text-normal);
+    --search-result-count-color: #878a98;
+    --search-result-file-title-color: #74ade8;
+    --search-result-file-title-weight: 500;
+    --search-result-file-matches-color: #dce0e5;
+    --search-result-file-matched-text-color: #dce0e5;
+    --search-result-file-match-background: rgba(116, 173, 232, 0.35);
+    --search-result-file-match-border-color: #74ade8;
+    --search-result-file-match-border-width: 0;
+    --search-result-file-match-border-radius: 3px;
+    --search-result-file-match-padding: 2px 4px;
+    --search-result-file-match-margin: 0;
+    --search-result-file-match-line-color: #878a98;
+    --search-result-file-match-line-weight: inherit;
+    --search-result-file-match-line-background: transparent;
+    --search-result-file-match-line-padding: 0;
+    --search-result-file-match-line-margin: 0;
+    --search-result-file-match-line-border-color: transparent;
+    --search-result-file-match-line-border-width: 0;
+    --search-result-file-match-line-border-radius: 0;
+    --search-clear-button-color: #878a98;
+    --search-clear-button-color-hover: #dce0e5;
+    --search-icon-color: #878a98;
+    --search-icon-color-hover: #dce0e5;
+}
+
+/* ==================== SYNTAX HIGHLIGHTING (CodeMirror 6) ==================== */
+/* These use the modern CodeMirror 6 class names */
+.theme-dark .cm-editor {
+    /* Comments */
+    --code-comment: #5d636f;
+
+    /* Keywords */
+    --code-keyword: #b477cf;
+
+    /* Functions */
+    --code-function: #73ade9;
+
+    /* Strings */
+    --code-string: #a1c181;
+
+    /* Numbers */
+    --code-number: #bf956a;
+
+    /* Types/Classes */
+    --code-type: #6eb4bf;
+
+    /* Properties */
+    --code-property: #d07277;
+
+    /* Operators */
+    --code-operator: #6eb4bf;
+
+    /* Tags (HTML/XML) */
+    --code-tag: #74ade8;
+
+    /* Attributes */
+    --code-attribute: #dec184;
+
+    /* Variables */
+    --code-variable: #acb2be;
+
+    /* Constants */
+    --code-constant: #bf956a;
+
+    /* Punctuation */
+    --code-punctuation: #b2b9c6;
+}
+
+/* ==================== ADDITIONAL STYLING ==================== */
+
+/* Active line in editor */
+.theme-dark .cm-activeLine {
+    background-color: rgba(43, 43, 43, 0.5) !important;
+}
+
+.theme-dark .cm-activeLineGutter {
+    background-color: rgba(43, 43, 43, 0.5) !important;
+}
+
+/* Line numbers */
+.theme-dark .cm-lineNumbers {
+    color: #4e5a5f;
+}
+
+.theme-dark .cm-activeLineGutter .cm-gutterElement {
+    color: #d0d4da;
+}
+
+/* Selection */
+.theme-dark ::selection {
+    background-color: rgba(116, 173, 232, 0.35);
+}
+
+/* Scrollbars */
+.theme-dark ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.theme-dark ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.theme-dark ::-webkit-scrollbar-thumb {
+    background: rgba(200, 204, 212, 0.25);
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.theme-dark ::-webkit-scrollbar-thumb:hover {
+    background: rgba(54, 60, 70, 0.8);
+}
+
+.theme-dark ::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* Active file in sidebar */
+.theme-dark .nav-file-title.is-active {
+    border-left: 3px solid #74ade8;
+}
+
+/* Tabs */
+.theme-dark .workspace-tab-header.is-active {
+    border-bottom: 2px solid #74ade8;
+}
+
+/* Callout backgrounds */
+.theme-dark .callout[data-callout="info"] {
+    background-color: rgba(116, 173, 232, 0.08);
+}
+
+.theme-dark .callout[data-callout="tip"] {
+    background-color: rgba(161, 193, 129, 0.08);
+}
+
+.theme-dark .callout[data-callout="warning"] {
+    background-color: rgba(222, 193, 132, 0.08);
+}
+
+.theme-dark .callout[data-callout="danger"] {
+    background-color: rgba(208, 114, 119, 0.08);
+}
+
+/* Canvas cards hover */
+.theme-dark .canvas-node:hover .canvas-node-container {
+    border-color: #74ade8;
+}
+
+/* Suggestions */
+.theme-dark .suggestion-item.is-selected {
+    background-color: rgba(116, 173, 232, 0.15);
+}
+
+/* Menu items */
+.theme-dark .menu-item:hover {
+    background-color: rgba(54, 60, 70, 0.6);
+}
+
+/* Loading spinner */
+.theme-dark .loading-spinner {
+    border-color: #363c46;
+    border-top-color: #74ade8;
+}
+
+/* Prompt input */
+.theme-dark .prompt-input {
+    background-color: rgba(46, 52, 62, 0.8);
+    border-color: #464b57;
+}
+
+.theme-dark .prompt-input:focus {
+    border-color: #47679e;
+}
+
+/* Metadata properties */
+.theme-dark .metadata-property-key {
+    color: #878a98;
+}
+
+.theme-dark .metadata-property-value {
+    color: #dce0e5;
+}
+
+/* Mobile adjustments */
+.is-mobile.theme-dark .workspace-drawer {
+    background-color: rgba(10, 10, 10, 0.98);
+}
+
+.is-mobile.theme-dark .workspace-drawer.mod-left {
+    border-right-color: #464b57;
+}
+
+.is-mobile.theme-dark .workspace-drawer.mod-right {
+    border-left-color: #464b57;
+}

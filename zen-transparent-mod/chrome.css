@@ -1,0 +1,607 @@
+/* ============================================================================
+   ZEN TRANSPARENT GLASS THEME
+   A beautiful transparent theme for Zen Browser with Linux support
+   Version: 1.0.0
+   ============================================================================ */
+
+/* ============================================================================
+   SECTION 1: ROOT VARIABLES AND BASE TRANSPARENCY
+   ============================================================================ */
+
+:root {
+  /* Base transparency variables */
+  --zen-transparent-bg: transparent !important;
+  --zen-transparent-color: #00000000 !important;
+  
+  /* Default opacity levels */
+  --zen-transparency-opacity: 0.85;
+  --zen-sidebar-opacity: 0.9;
+  --zen-tab-opacity: 0.8;
+  
+  /* Animation smoothness */
+  --zen-glass-animation: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  
+  /* Default accent color (can be customized) */
+  --zen-glass-accent: var(--zen-primary-color, #8b5cf6);
+  --zen-glass-accent-rgb: 139, 92, 246;
+}
+
+/* ============================================================================
+   SECTION 2: MAIN BROWSER TRANSPARENCY
+   ============================================================================ */
+
+/* Enable main browser background transparency */
+@media (-moz-pref("mod.zenglass.enable_transparency", true)) {
+  :root {
+    --zen-main-browser-background: var(--zen-transparent-color) !important;
+    --zen-themed-toolbar-background: var(--zen-transparent-color) !important;
+  }
+  
+  /* Main browser container */
+  #browser {
+    background: var(--zen-transparent-color) !important;
+  }
+  
+  /* App content area */
+  #appcontent {
+    background: var(--zen-transparent-color) !important;
+  }
+  
+  /* Browser stack (where web pages render) */
+  .browserStack {
+    background: var(--zen-transparent-color) !important;
+  }
+  
+  .browserStack > browser {
+    background: var(--zen-transparent-color) !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 3: SIDEBAR TRANSPARENCY
+   ============================================================================ */
+
+/* Sidebar background transparency */
+@media (-moz-pref("mod.zenglass.sidebar_transparency", true)) {
+  #zen-sidebar {
+    background: rgba(0, 0, 0, 0) !important;
+    backdrop-filter: blur(var(--mod-zenglass-blur-amount, 10px)) !important;
+  }
+  
+  /* Sidebar splitter */
+  #zen-sidebar-splitter {
+    background: transparent !important;
+    border-color: transparent !important;
+  }
+  
+  /* Tabs container */
+  #tabbrowser-tabs {
+    background: rgba(0, 0, 0, var(--zen-sidebar-opacity)) !important;
+    backdrop-filter: blur(var(--mod-zenglass-blur-amount, 10px)) !important;
+  }
+  
+  /* Tab items */
+  .tabbrowser-tab {
+    background: transparent !important;
+  }
+  
+  .tab-background {
+    background: rgba(var(--zen-glass-accent-rgb), 0.15) !important;
+    border-radius: 8px !important;
+    transition: var(--zen-glass-animation) !important;
+  }
+  
+  .tabbrowser-tab:hover .tab-background {
+    background: rgba(var(--zen-glass-accent-rgb), 0.25) !important;
+  }
+  
+  .tabbrowser-tab[selected] .tab-background {
+    background: rgba(var(--zen-glass-accent-rgb), 0.4) !important;
+    box-shadow: 0 2px 8px rgba(var(--zen-glass-accent-rgb), 0.3) !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 4: URL BAR TRANSPARENCY
+   ============================================================================ */
+
+/* URL bar glass effect */
+@media (-moz-pref("mod.zenglass.urlbar_transparency", true)) {
+  #urlbar {
+    background: rgba(0, 0, 0, var(--zen-transparency-opacity)) !important;
+    backdrop-filter: blur(var(--mod-zenglass-blur-amount, 10px)) !important;
+    border: 1px solid rgba(var(--zen-glass-accent-rgb), 0.3) !important;
+    border-radius: 12px !important;
+    transition: var(--zen-glass-animation) !important;
+  }
+  
+  #urlbar[focused] {
+    background: rgba(0, 0, 0, 0.95) !important;
+    border-color: rgba(var(--zen-glass-accent-rgb), 0.6) !important;
+    box-shadow: 0 4px 20px rgba(var(--zen-glass-accent-rgb), 0.2) !important;
+  }
+  
+  /* URL bar input */
+  #urlbar-input {
+    color: light-dark(#333, #fff) !important;
+  }
+  
+  /* URL bar dropdown/results */
+  .urlbarView {
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(var(--mod-zenglass-blur-amount, 10px)) !important;
+    border: 1px solid rgba(var(--zen-glass-accent-rgb), 0.2) !important;
+    border-radius: 12px !important;
+    margin-top: 8px !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 5: TOOLBAR TRANSPARENCY
+   ============================================================================ */
+
+/* Top toolbar transparency */
+@media (-moz-pref("mod.zenglass.toolbar_transparency", true)) {
+  #zen-appcontent-navbar-container {
+    background: rgba(0, 0, 0, var(--zen-transparency-opacity)) !important;
+    backdrop-filter: blur(var(--mod-zenglass-blur-amount, 10px)) !important;
+  }
+  
+  /* Navigation toolbar */
+  #nav-bar {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  
+  /* Personal toolbar (bookmarks) */
+  #PersonalToolbar {
+    background: rgba(0, 0, 0, var(--zen-transparency-opacity)) !important;
+    backdrop-filter: blur(var(--mod-zenglass-blur-amount, 10px)) !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 6: CONTEXT MENUS AND POPUPS
+   ============================================================================ */
+
+/* Glass effect for context menus */
+@media (-moz-pref("mod.zenglass.glass_menus", true)) {
+  menupopup,
+  panel {
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(var(--mod-zenglass-blur-amount, 15px)) !important;
+    border: 1px solid rgba(var(--zen-glass-accent-rgb), 0.2) !important;
+    border-radius: 12px !important;
+  }
+  
+  menuitem {
+    background: transparent !important;
+    border-radius: 6px !important;
+    margin: 2px 4px !important;
+  }
+  
+  menuitem:hover {
+    background: rgba(var(--zen-glass-accent-rgb), 0.2) !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 7: WORKSPACE BUTTONS
+   ============================================================================ */
+
+/* Workspace selector styling */
+@media (-moz-pref("mod.zenglass.workspace_style", true)) {
+  #zen-workspaces-button {
+    background: rgba(var(--zen-glass-accent-rgb), 0.15) !important;
+    backdrop-filter: blur(var(--mod-zenglass-blur-amount, 10px)) !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(var(--zen-glass-accent-rgb), 0.2) !important;
+    padding: 4px 8px !important;
+  }
+  
+  .zen-workspace-tab {
+    border-radius: 16px !important;
+    transition: var(--zen-glass-animation) !important;
+  }
+  
+  .zen-workspace-tab[active] {
+    background: rgba(var(--zen-glass-accent-rgb), 0.4) !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 8: ESSENTIALS AND PINNED TABS
+   ============================================================================ */
+
+/* Pinned tabs styling */
+@media (-moz-pref("mod.zenglass.pinned_tab_style", true)) {
+  .tabbrowser-tab[pinned] .tab-background {
+    background: rgba(var(--zen-glass-accent-rgb), 0.2) !important;
+    border: 1px solid rgba(var(--zen-glass-accent-rgb), 0.3) !important;
+    border-radius: 10px !important;
+  }
+  
+  .tabbrowser-tab[pinned]:hover .tab-background {
+    background: rgba(var(--zen-glass-accent-rgb), 0.35) !important;
+  }
+  
+  .tabbrowser-tab[pinned][selected] .tab-background {
+    background: rgba(var(--zen-glass-accent-rgb), 0.5) !important;
+    box-shadow: 0 2px 10px rgba(var(--zen-glass-accent-rgb), 0.3) !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 9: FIND BAR STYLING
+   ============================================================================ */
+
+/* Find bar glass effect */
+@media (-moz-pref("mod.zenglass.findbar_style", true)) {
+  findbar {
+    background: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(var(--mod-zenglass-blur-amount, 10px)) !important;
+    border-top: 1px solid rgba(var(--zen-glass-accent-rgb), 0.2) !important;
+  }
+  
+  .findbar-textbox {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(var(--zen-glass-accent-rgb), 0.3) !important;
+    border-radius: 8px !important;
+    color: light-dark(#333, #fff) !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 10: STATUS PANEL
+   ============================================================================ */
+
+/* Status panel (link hover) */
+@media (-moz-pref("mod.zenglass.status_panel", true)) {
+  #statuspanel {
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(var(--mod-zenglass-blur-amount, 10px)) !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(var(--zen-glass-accent-rgb), 0.2) !important;
+    margin: 8px !important;
+  }
+  
+  #statuspanel-label {
+    color: light-dark(#333, #fff) !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 11: SCROLLBAR STYLING
+   ============================================================================ */
+
+/* Custom scrollbar styling */
+@media (-moz-pref("mod.zenglass.custom_scrollbar", true)) {
+  scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+  }
+  
+  scrollbar thumb {
+    background: rgba(var(--zen-glass-accent-rgb), 0.4) !important;
+    border-radius: 4px !important;
+    border: none !important;
+  }
+  
+  scrollbar thumb:hover {
+    background: rgba(var(--zen-glass-accent-rgb), 0.6) !important;
+  }
+  
+  scrollbar track {
+    background: transparent !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 12: COMPACT MODE ENHANCEMENTS
+   ============================================================================ */
+
+/* Compact mode sidebar hover */
+@media (-moz-pref("mod.zenglass.compact_hover", true)) {
+  #zen-sidebar[compact="true"]:hover {
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(var(--mod-zenglass-blur-amount, 15px)) !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 13: NOTIFICATIONS AND TOASTS
+   ============================================================================ */
+
+/* Notification styling */
+@media (-moz-pref("mod.zenglass.notifications", true)) {
+  .notificationbox-stack notification {
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(var(--mod-zenglass-blur-amount, 10px)) !important;
+    border: 1px solid rgba(var(--zen-glass-accent-rgb), 0.3) !important;
+    border-radius: 12px !important;
+    margin: 8px !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 14: LINUX-SPECIFIC FIXES
+   ============================================================================ */
+
+/* Linux-specific transparency fixes */
+@media (-moz-platform: linux) {
+  @media (-moz-pref("mod.zenglass.linux_fixes", true)) {
+    /* Ensure proper transparency on Linux */
+    #main-window {
+      background: var(--zen-transparent-color) !important;
+    }
+    
+    /* Fix for some Linux window managers */
+    #browser-panel {
+      background: var(--zen-transparent-color) !important;
+    }
+    
+    /* Additional Linux fixes for blur */
+    .browserSidebarContainer {
+      background: var(--zen-transparent-color) !important;
+    }
+  }
+}
+
+/* ============================================================================
+   SECTION 15: ACCENT COLOR CUSTOMIZATION
+   ============================================================================ */
+
+/* Accent color options */
+:root:has([mod-zenglass-accent-color="purple"]) {
+  --zen-glass-accent: #8b5cf6;
+  --zen-glass-accent-rgb: 139, 92, 246;
+}
+
+:root:has([mod-zenglass-accent-color="blue"]) {
+  --zen-glass-accent: #3b82f6;
+  --zen-glass-accent-rgb: 59, 130, 246;
+}
+
+:root:has([mod-zenglass-accent-color="green"]) {
+  --zen-glass-accent: #10b981;
+  --zen-glass-accent-rgb: 16, 185, 129;
+}
+
+:root:has([mod-zenglass-accent-color="red"]) {
+  --zen-glass-accent: #ef4444;
+  --zen-glass-accent-rgb: 239, 68, 68;
+}
+
+:root:has([mod-zenglass-accent-color="orange"]) {
+  --zen-glass-accent: #f97316;
+  --zen-glass-accent-rgb: 249, 115, 22;
+}
+
+:root:has([mod-zenglass-accent-color="pink"]) {
+  --zen-glass-accent: #ec4899;
+  --zen-glass-accent-rgb: 236, 72, 153;
+}
+
+:root:has([mod-zenglass-accent-color="cyan"]) {
+  --zen-glass-accent: #06b6d4;
+  --zen-glass-accent-rgb: 6, 182, 212;
+}
+
+:root:has([mod-zenglass-accent-color="white"]) {
+  --zen-glass-accent: #ffffff;
+  --zen-glass-accent-rgb: 255, 255, 255;
+}
+
+/* ============================================================================
+   SECTION 16: ANIMATION SETTINGS
+   ============================================================================ */
+
+/* Animation speed settings */
+:root:has([mod-zenglass-animation-speed="none"]) {
+  --zen-glass-animation: none !important;
+}
+
+:root:has([mod-zenglass-animation-speed="fast"]) {
+  --zen-glass-animation: all 0.15s ease-out !important;
+}
+
+:root:has([mod-zenglass-animation-speed="normal"]) {
+  --zen-glass-animation: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+:root:has([mod-zenglass-animation-speed="slow"]) {
+  --zen-glass-animation: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* ============================================================================
+   SECTION 17: BORDER RADIUS CUSTOMIZATION
+   ============================================================================ */
+
+:root:has([mod-zenglass-border-radius="small"]) {
+  --zen-glass-border-radius: 6px;
+}
+
+:root:has([mod-zenglass-border-radius="medium"]) {
+  --zen-glass-border-radius: 12px;
+}
+
+:root:has([mod-zenglass-border-radius="large"]) {
+  --zen-glass-border-radius: 20px;
+}
+
+/* Apply border radius */
+@media (-moz-pref("mod.zenglass.custom_border_radius", true)) {
+  .tab-background,
+  #urlbar,
+  .urlbarView,
+  menupopup,
+  panel {
+    border-radius: var(--zen-glass-border-radius, 12px) !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 18: OPACITY LEVELS
+   ============================================================================ */
+
+/* Light opacity */
+:root:has([mod-zenglass-opacity="light"]) {
+  --zen-transparency-opacity: 0.7;
+  --zen-sidebar-opacity: 0.75;
+  --zen-tab-opacity: 0.65;
+}
+
+/* Medium opacity (default) */
+:root:has([mod-zenglass-opacity="medium"]) {
+  --zen-transparency-opacity: 0.85;
+  --zen-sidebar-opacity: 0.9;
+  --zen-tab-opacity: 0.8;
+}
+
+/* Heavy opacity */
+:root:has([mod-zenglass-opacity="heavy"]) {
+  --zen-transparency-opacity: 0.95;
+  --zen-sidebar-opacity: 0.95;
+  --zen-tab-opacity: 0.9;
+}
+
+/* ============================================================================
+   SECTION 19: ADDITIONAL UI ENHANCEMENTS
+   ============================================================================ */
+
+/* Remove unnecessary borders */
+@media (-moz-pref("mod.zenglass.remove_borders", true)) {
+  #zen-sidebar,
+  #tabbrowser-tabs,
+  .tabbrowser-tab {
+    border: none !important;
+  }
+}
+
+/* Subtle shadow effects */
+@media (-moz-pref("mod.zenglass.shadow_effects", true)) {
+  .tabbrowser-tab[selected] .tab-background {
+    box-shadow: 
+      0 4px 12px rgba(var(--zen-glass-accent-rgb), 0.25),
+      0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  #urlbar[focused] {
+    box-shadow: 
+      0 8px 32px rgba(var(--zen-glass-accent-rgb), 0.25),
+      0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 20: DARK/LIGHT MODE ADAPTATIONS
+   ============================================================================ */
+
+/* Light mode adaptations */
+@media (prefers-color-scheme: light) {
+  @media (-moz-pref("mod.zenglass.enable_transparency", true)) {
+    #tabbrowser-tabs {
+      background: rgba(255, 255, 255, var(--zen-sidebar-opacity)) !important;
+    }
+    
+    #urlbar {
+      background: rgba(255, 255, 255, var(--zen-transparency-opacity)) !important;
+    }
+    
+    menupopup,
+    panel {
+      background: rgba(255, 255, 255, 0.95) !important;
+    }
+  }
+}
+
+/* ============================================================================
+   SECTION 21: HIDE ELEMENTS OPTIONS
+   ============================================================================ */
+
+/* Hide workspace indicator */
+@media (-moz-pref("mod.zenglass.hide_workspace_indicator", true)) {
+  #zen-workspaces-indicator {
+    display: none !important;
+  }
+}
+
+/* Hide new tab button */
+@media (-moz-pref("mod.zenglass.hide_newtab_button", true)) {
+  #tabs-newtab-button {
+    display: none !important;
+  }
+}
+
+/* Hide tab close buttons until hover */
+@media (-moz-pref("mod.zenglass.hide_close_buttons", true)) {
+  .tab-close-button {
+    opacity: 0 !important;
+    transition: opacity 0.2s ease !important;
+  }
+  
+  .tabbrowser-tab:hover .tab-close-button {
+    opacity: 1 !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 22: TAB TEXT STYLING
+   ============================================================================ */
+
+/* Tab text customization */
+@media (-moz-pref("mod.zenglass.tab_text_style", true)) {
+  .tab-label {
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+  }
+  
+  .tabbrowser-tab[selected] .tab-label {
+    font-weight: 600 !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 23: LOADING INDICATOR
+   ============================================================================ */
+
+/* Custom loading indicator */
+@media (-moz-pref("mod.zenglass.custom_loading", true)) {
+  .tab-throbber {
+    filter: drop-shadow(0 0 4px var(--zen-glass-accent)) !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 24: HOVER EFFECTS
+   ============================================================================ */
+
+/* Enhanced hover effects */
+@media (-moz-pref("mod.zenglass.hover_effects", true)) {
+  .tabbrowser-tab {
+    transition: transform 0.2s ease !important;
+  }
+  
+  .tabbrowser-tab:hover {
+    transform: translateX(2px) !important;
+  }
+  
+  toolbarbutton:hover {
+    background: rgba(var(--zen-glass-accent-rgb), 0.15) !important;
+    border-radius: 6px !important;
+  }
+}
+
+/* ============================================================================
+   SECTION 25: FINAL FALLBACKS AND RESETS
+   ============================================================================ */
+
+/* Ensure important elements remain visible */
+#tabbrowser-tabs[overflow] > .tabbrowser-arrowscrollbox > .tabbrowser-tab {
+  min-height: 32px !important;
+}
+
+/* Fix for any potential visibility issues */
+.tabbrowser-tab[selected]:not([zen-essential]) {
+  z-index: 1 !important;
+}

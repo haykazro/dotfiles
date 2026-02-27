@@ -1,0 +1,192 @@
+[
+  {
+    "property": "mod.zenglass.enable_transparency",
+    "label": "Enable main browser transparency (REQUIRED for transparency to work)",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.linux_fixes",
+    "label": "Enable Linux-specific transparency fixes",
+    "type": "checkbox",
+    "defaultValue": true,
+    "disabledOn": ["windows", "macos"]
+  },
+  {
+    "property": "mod.zenglass.blur_amount",
+    "label": "Blur amount (in pixels)",
+    "type": "string",
+    "defaultValue": "10px",
+    "placeholder": "e.g: 10px, 15px, 20px"
+  },
+  {
+    "property": "mod.zenglass.accent_color",
+    "label": "Accent color theme",
+    "type": "dropdown",
+    "options": [
+      { "label": "Purple (Default)", "value": "purple" },
+      { "label": "Blue", "value": "blue" },
+      { "label": "Green", "value": "green" },
+      { "label": "Red", "value": "red" },
+      { "label": "Orange", "value": "orange" },
+      { "label": "Pink", "value": "pink" },
+      { "label": "Cyan", "value": "cyan" },
+      { "label": "White", "value": "white" }
+    ],
+    "defaultValue": "purple"
+  },
+  {
+    "property": "mod.zenglass.opacity",
+    "label": "Transparency opacity level",
+    "type": "dropdown",
+    "options": [
+      { "label": "Light (More transparent)", "value": "light" },
+      { "label": "Medium (Default)", "value": "medium" },
+      { "label": "Heavy (Less transparent)", "value": "heavy" }
+    ],
+    "defaultValue": "medium"
+  },
+  {
+    "property": "mod.zenglass.sidebar_transparency",
+    "label": "Enable sidebar transparency",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.urlbar_transparency",
+    "label": "Enable URL bar transparency with glass effect",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.toolbar_transparency",
+    "label": "Enable toolbar transparency",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.glass_menus",
+    "label": "Enable glass effect for context menus and popups",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.workspace_style",
+    "label": "Enable styled workspace buttons",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.pinned_tab_style",
+    "label": "Enable styled pinned tabs",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.findbar_style",
+    "label": "Enable styled find bar",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.status_panel",
+    "label": "Enable styled status panel (link hover)",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.custom_scrollbar",
+    "label": "Enable custom scrollbar styling",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.compact_hover",
+    "label": "Enhanced compact mode sidebar hover effect",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.notifications",
+    "label": "Enable styled notifications",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.animation_speed",
+    "label": "Animation speed",
+    "type": "dropdown",
+    "options": [
+      { "label": "None (No animations)", "value": "none" },
+      { "label": "Fast", "value": "fast" },
+      { "label": "Normal", "value": "normal" },
+      { "label": "Slow", "value": "slow" }
+    ],
+    "defaultValue": "normal"
+  },
+  {
+    "property": "mod.zenglass.border_radius",
+    "label": "Border radius size",
+    "type": "dropdown",
+    "options": [
+      { "label": "Small", "value": "small" },
+      { "label": "Medium", "value": "medium" },
+      { "label": "Large", "value": "large" }
+    ],
+    "defaultValue": "medium"
+  },
+  {
+    "property": "mod.zenglass.custom_border_radius",
+    "label": "Enable custom border radius",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.remove_borders",
+    "label": "Remove unnecessary borders",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zenglass.shadow_effects",
+    "label": "Enable shadow effects on active elements",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.hide_workspace_indicator",
+    "label": "Hide workspace indicator",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zenglass.hide_newtab_button",
+    "label": "Hide new tab button",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zenglass.hide_close_buttons",
+    "label": "Hide tab close buttons until hover",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zenglass.tab_text_style",
+    "label": "Enable styled tab text",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.custom_loading",
+    "label": "Enable custom loading indicator",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zenglass.hover_effects",
+    "label": "Enable enhanced hover effects",
+    "type": "checkbox",
+    "defaultValue": true
+  }
+]
