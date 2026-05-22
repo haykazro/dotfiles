@@ -60,3 +60,8 @@ hl.config({
         fullscreen_on_one_column = true,
     },
 })
+
+hl.window_rule({
+    match = { class = "obsidian" },
+    opacity = "0.999999"
+})
