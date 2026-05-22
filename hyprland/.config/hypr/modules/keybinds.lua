@@ -46,6 +46,12 @@ end
 hl.bind(mainMod .. " + GRAVE", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + GRAVE", hl.dsp.window.move({ workspace = "special:magic" }))
 
+------------ monitor switch ------------
+hl.bind(mainMod .. " + TAB + right", hl.dsp.focus({ monitor = "r" }))
+hl.bind(mainMod .. " + TAB + left", hl.dsp.focus({ monitor = "l" }))
+hl.bind(mainMod .. " + TAB", hl.dsp.focus({ monitor = "+1" }), { release = true })
+hl.bind(mainMod .. " + SHIFT + TAB", hl.dsp.workspace.move({ monitor = "+1" }))
+
 ------------ Scroll through existing workspaces (idk what it does?)------------
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
