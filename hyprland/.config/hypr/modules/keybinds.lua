@@ -27,6 +27,7 @@ hl.bind(mainMod .. " + ESCAPE", hl.dsp.global("quickshell:togglePowerMenu"))
 
 ------------ screen shot ------------
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m output -m active"))
+hl.bind(mainMod .." + SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m output -m active --raw | satty --filename -"))
 hl.bind(mainMod .. "+ PRINT", hl.dsp.exec_cmd("hyprshot -m region --raw | satty --filename -"))
 
 ------------ Move focus ------------
