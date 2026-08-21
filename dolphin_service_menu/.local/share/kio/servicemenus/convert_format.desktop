@@ -1,0 +1,32 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/*;
+Actions=jpg;png;webp;avif;heic;
+X-KDE-Submenu=Convert Image
+Icon=image-x-generic
+
+[Desktop Action jpg]
+Name=JPEG
+Icon=image-jpeg
+Exec=bash -c 'for f in "$@"; do ffmpeg -hide_banner -loglevel error -y -i "$f" "${f%.*}.jpg"; done' _ %F
+
+[Desktop Action png]
+Name=PNG
+Icon=image-png
+Exec=bash -c 'for f in "$@"; do ffmpeg -hide_banner -loglevel error -y -i "$f" "${f%.*}.png"; done' _ %F
+
+[Desktop Action webp]
+Name=WebP
+Icon=image-webp
+Exec=bash -c 'for f in "$@"; do ffmpeg -hide_banner -loglevel error -y -i "$f" "${f%.*}.webp"; done' _ %F
+
+[Desktop Action avif]
+Name=AVIF
+Icon=image-avif
+Exec=bash -c 'for f in "$@"; do ffmpeg -hide_banner -loglevel error -y -i "$f" "${f%.*}.avif"; done' _ %F
+
+[Desktop Action heic]
+Name=HEIC
+Icon=image-x-generic
+Exec=bash -c 'for f in "$@"; do ffmpeg -hide_banner -loglevel error -y -i "$f" "${f%.*}.heic"; done' _ %F
